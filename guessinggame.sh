@@ -9,10 +9,10 @@ function checkguess {
     # Usage of an if statement
     if [[ $1 -lt $2 ]]
     then
-    echo "echo Too low"
+    echo "echo Guess Too low"
     elif [[ $1 -gt $2 ]]
     then
-    echo "echo Too high"
+    echo "echo Guess Too high"
     fi
 }
 
@@ -26,4 +26,4 @@ read dirguess
 $(checkguess $dirguess $dircount)
 
 done
-echo "You got it right!  Congrats!"
+echo "Yes that is right..!  Congrats!"
