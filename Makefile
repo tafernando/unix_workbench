@@ -1,6 +1,3 @@
-all: README.md
-
-README.md:
 	echo "## guessinggame.sh for Unix course\n" > README.md
 	echo -n "README.md created: " >> README.md
 	date >> README.md

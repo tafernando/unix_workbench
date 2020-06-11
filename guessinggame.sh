@@ -1,26 +1,29 @@
 #!/usr/bin/env bash
 # File: guessinggame.sh
-# The Unix Workbench
 
-count=$(ls -1 | wc -l)
+dirarray=($(ls -d */))
+dircount=${#dirarray[@]}
+dirguess=0
 
-function correct_guess {        
-    if [[ $1 -lt $2 ]]          
+function checkguess {
+    # Usage of an if statement
+    if [[ $1 -lt $2 ]]
     then
-	echo "Low guess!"
+    echo "echo Too low"
     elif [[ $1 -gt $2 ]]
     then
-	echo "Guess too high!"
-    else
-	echo ""
-	echo "YES..  GOOD GUESS!"
+    echo "echo Too high"
     fi
 }
 
-while [[ $count -ne $guess ]]    # One loop...
+# Usage of a loop
+while [ $dirguess -ne $dircount ]
 do
-    read -p "Can you guess how many files are in the current directory? " guess
-    # echo "You entered: $guess"
-    echo $(correct_guess $guess $count)
-    echo ""
+echo "Guess the number of directories!"
+# Collecting user response
+read dirguess
+
+$(checkguess $dirguess $dircount)
+
 done
+echo "You got it right!  Congrats!"
